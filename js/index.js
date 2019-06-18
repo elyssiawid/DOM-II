@@ -60,6 +60,8 @@ function zoom(event, item) {
     adv.onwheel = zoom;
     fun.onwheel = zoom;
 
+    fun.preventDefault();
+
   //drag
   let dest = document.getElementById("dest");
     dest.addEventListener("dragstart", function(event) {
@@ -98,24 +100,9 @@ leggo.addEventListener("mouseup", function( event ) {
     }, false);
 
  //scroll
-    let last_known_scroll_position = 0;
-let ticking = false;
-
-function doSomething(scroll_pos) {
-  // Do something with the scroll position
-}
-
-window.addEventListener('scroll', function(e) {
-  last_known_scroll_position = window.scrollY;
-
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      doSomething(last_known_scroll_position);
-      ticking = false;
-    });
-
-    ticking = true;
-  }
+  window.onscroll=function(){
+      alert("Keep on and scroll on");
+  };
 
 //focus
 // const traveling = document.querySelector('input[type="traveling"]');
@@ -131,6 +118,13 @@ console.log(funbus);
 funbus.addEventListener('dblclick', (event) => {
  alert("Nothing for you here!")
 });
+
+//Prevent Page Refresh
+for (var i=0; i <links.length; i++){
+    links[i].addEventListener("click",function(event){
+    event.preventDefault()
+    });
+}
 // funbus.addEventListener('dblclick', function () {
 //   funbus.classList.toggle('large');
 // });
@@ -206,4 +200,3 @@ funbus.addEventListener('dblclick', (event) => {
     //     addEventListener("copy", event => {
     //         alert("Do not copy our content!");
     //     });
-    })
