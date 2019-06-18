@@ -126,20 +126,31 @@ window.addEventListener('scroll', function(e) {
 //   console.log(traveling)
 
 //dblclick
-const funbus = document.querySelector('funbus');
-funbus.addEventListener('dblclick', function () {
-  funbus.classList.toggle('large');
+let funbus = document.getElementById('funbus');
+console.log(funbus);
+funbus.addEventListener('dblclick', (event) => {
+ alert("Nothing for you here!")
 });
+// funbus.addEventListener('dblclick', function () {
+//   funbus.classList.toggle('large');
+// });
 
 
-//nav
-const nav = document.querySelector ("nav")
-submitForm.addeventListener("refresh", event => {
-    if (first.value.length <1){
-        this.alert("NULL")
-    }
-    event.preventDefault()
-})
+//dblclick
+// const funbus = document.querySelector('funbus');
+// funbus.addEventListener('dblclick', function () {
+//   funbus.classList.toggle('large');
+// });
+
+
+// //nav
+// const nav = document.querySelector ("nav")
+// submitForm.addEventListener("refresh", event => {
+//     if (first.value.length <1){
+//         this.alert("NULL")
+//     }
+//     event.preventDefault()
+// })
 
 //
 // window.addEventListener('load', (event) => {
