@@ -20,9 +20,30 @@ adventure.addEventListener("mousedown", function( event ) {
       }, 500);
     }, false);
 
+//keydown
+// let adventure = document.getElementById("adventure");
+// adventure.addEventListener("keydown", function( event ) {   
+//     event.target.style.color = "orange";
+//     setTimeout(function() {
+//         event.target.style.color = "";
+//       }, 1000);
+//     }, false);
+
+let body = document.querySelector("body");
+
+body.addEventListener("keydown", () => {
+  body.style.background = "gray";
+});
+
+//keyup
+body.addEventListener("keyup", () => {
+    body.style.background ="dodgerblue";
+});
+
 //wheel
 let adv = document.getElementById("adv-img");
-function zoom(event) {
+const fun = document.getElementById("fun");
+function zoom(event, item) {
     event.preventDefault();
   
     scale += event.deltaY * -0.01;
@@ -32,34 +53,33 @@ function zoom(event) {
   
     // Apply scale transform
     adv.style.transform = `scale(${scale})`;
+    fun.style.transform = `scale(${scale})`;
   }
   
   let scale = 1;
-  const el = document.querySelector('adv-img');
-  adv.onwheel = zoom;
+    adv.onwheel = zoom;
+    fun.onwheel = zoom;
 
-  //drap
+  //drag
   let dest = document.getElementById("dest");
     dest.addEventListener("dragstart", function(event) {
     alert("No dragging!");
   });
   
-  //drop
-    const fun = document.getElementById("fun");
-    console.log(fun)
-    
-    fun.addEventListener("drop", function(event) {
-    event.preventDefault();
-    alert("No dragging!");
-    event.target.style.opacity = 0.5;
-  });
+//   //drop
+
+//     const fun = document.getElementById("fun");
+//     console.log(fun)
+
+//     fun.addEventListener("drop", function(event) {
+//     alert("No dragging!");
+//     event.target.style.opacity = 1;
+//   });
 
 
 
   //load
 const log = document.querySelector('content-destination');
-const reload = document.querySelector('#dest');
-
 dest.addEventListener('click', () => {
   log.textContent ='';
   window.setTimeout(() => {
@@ -67,17 +87,72 @@ dest.addEventListener('click', () => {
   }, 200);
 });
 
-window.addEventListener('load', (event) => {
-    log.textContent = log.textContent + 'load\n';
+
+//mouseup
+let leggo = document.getElementById("leggo");
+leggo.addEventListener("mouseup", function( event ) {   
+    event.target.style.color = "gold";
+    setTimeout(function() {
+        event.target.style.color = "";
+      }, 500);
+    }, false);
+
+ //scroll
+    let last_known_scroll_position = 0;
+let ticking = false;
+
+function doSomething(scroll_pos) {
+  // Do something with the scroll position
+}
+
+window.addEventListener('scroll', function(e) {
+  last_known_scroll_position = window.scrollY;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      doSomething(last_known_scroll_position);
+      ticking = false;
+    });
+
+    ticking = true;
+  }
+
+//focus
+// const traveling = document.querySelector('input[type="traveling"]');
+// traveling.addEventListener('blur', (event) => {
+//     event.target.style.background = '';    
+//   });
+
+//   console.log(traveling)
+
+//dblclick
+const funbus = document.querySelector('funbus');
+funbus.addEventListener('dblclick', function () {
+  funbus.classList.toggle('large');
 });
 
-document.addEventListener('readystatechange', (event) => {
-    log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
-});
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    log.textContent = log.textContent + `DOMContentLoaded\n`;
-});
+//nav
+const nav = document.querySelector ("nav")
+submitForm.addeventListener("refresh", event => {
+    if (first.value.length <1){
+        this.alert("NULL")
+    }
+    event.preventDefault()
+})
+
+//
+// window.addEventListener('load', (event) => {
+//     log.textContent = log.textContent + 'load\n';
+// });
+
+// document.addEventListener('readystatechange', (event) => {
+//     log.textContent = log.textContent + `readystate: ${document.readyState}\n`;
+// });
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     log.textContent = log.textContent + `DOMContentLoaded\n`;
+// });
   
 //     leggo.addEventListener("drop", myScript);
 //     console.log(leggo);
@@ -120,4 +195,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //     addEventListener("copy", event => {
     //         alert("Do not copy our content!");
     //     });
-    // });
+    })
