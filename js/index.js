@@ -60,8 +60,6 @@ function zoom(event, item) {
     adv.onwheel = zoom;
     fun.onwheel = zoom;
 
-    fun.preventDefault();
-
   //drag
   let dest = document.getElementById("dest");
     dest.addEventListener("dragstart", function(event) {
@@ -101,7 +99,7 @@ leggo.addEventListener("mouseup", function( event ) {
 
  //scroll
   window.onscroll=function(){
-      alert("Keep on and scroll on");
+      console.log("Keep on and scroll on");
   };
 
 //focus
@@ -120,11 +118,23 @@ funbus.addEventListener('dblclick', (event) => {
 });
 
 //Prevent Page Refresh
-for (var i=0; i <links.length; i++){
-    links[i].addEventListener("click",function(event){
-    event.preventDefault()
+const atags = document.querySelectorAll(".nav-link");
+console.log(atags);
+atags.forEach (function (atag){
+    atag.addEventListener("click", event => {
+        event.stopPropagation();
+        console.log("You clicked an a tag!");
     });
-}
+})
+
+const nav = document.querySelector("nav");
+nav.addEventListener("click", event => console.log('You clicked a nav!'))
+
+// for (var i=0; i <links.length; i++){
+//     links[i].addEventListener("click",function(event){
+//     event.preventDefault()
+//     });
+// }
 // funbus.addEventListener('dblclick', function () {
 //   funbus.classList.toggle('large');
 // });
