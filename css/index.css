@@ -168,11 +168,24 @@ img {
   width: 100%;
   margin: 0 auto;
 }
+
+.grow {
+  color: dodgerblue;
+  transform: scale(2);
+  transform:rotate(20deg);
+}
+
 @media (max-width: 500px) {
   .container {
     width: 90%;
     margin: 0 5%;
   }
+}
+
+.grow {
+  color: dodgerblue;
+  transform: scale(2);
+  transform:rotate(20deg);
 }
 .main-navigation {
   width: 100%;
