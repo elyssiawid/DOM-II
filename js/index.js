@@ -2,7 +2,7 @@
 
 // document.getElementById(".btn").addEventListener("click", displayDate);
 
-//mouseover
+mouseover
 let btn = document.getElementById("btn1");
 btn.addEventListener("mouseover", function( event ) {   
     event.target.style.color = "purple";
@@ -10,6 +10,15 @@ btn.addEventListener("mouseover", function( event ) {
         event.target.style.color = "";
       }, 500);
     }, false);
+    
+//mouseover
+// let btn = document.getElementById("btn1");
+// btn.addEventListener("mouseover", function( event ) {   
+//     event.target.style.color = "purple";
+//     setTimeout(function() {
+//         event.target.style.color = "";
+//       }, 500);
+//     }, false);
 
 //mousedown
 let adventure = document.getElementById("adventure");
